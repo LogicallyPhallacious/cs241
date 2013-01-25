@@ -1,0 +1,33 @@
+int wain(int a, int b){
+	if (a > b) {
+	} else {
+		println(1);
+	}
+	
+	if (a<b) {
+	} else {
+		println(2);
+	}
+	
+	if (a == b) {
+		println(3);
+	} else {
+	}
+	
+	if (a == b) {
+	} else {
+		println(4);
+	}
+	
+	if (a != b) {
+	} else {
+		println(5);
+	}
+	
+	if (a != b) {
+		println(6);
+	} else {
+	}
+return 0;
+}
+

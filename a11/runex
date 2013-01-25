@@ -1,0 +1,2 @@
+java cs241.wlppc < $1 > foo.mips
+java mips.twoints foo.mips

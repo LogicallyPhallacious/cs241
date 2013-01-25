@@ -1,0 +1,5 @@
+int wain (int *a, int b) {
+  int *c = NULL;
+  c = &b;
+  return *c;
+}

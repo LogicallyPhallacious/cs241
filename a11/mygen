@@ -1,0 +1,2 @@
+java cs241.WLPPScan  < $1| ./parse | ./wlppgen >t
+vi t

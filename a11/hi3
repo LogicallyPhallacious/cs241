@@ -1,0 +1,25 @@
+int wain (int *a, int b) {
+int *c = NULL;
+int *e =NULL;
+int *d = NULL;
+int f = 0;
+
+e = new int[1];
+*e = 100;
+d = &b;
+c = new int[1];
+*c = 3;
+//delete [] e;
+
+
+if (e > c){
+	*d = *e;
+} else {
+	*d = *c;
+}
+
+println(*e);
+println(*c);
+f = b;
+
+ return f; }

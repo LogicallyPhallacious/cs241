@@ -1,0 +1,46 @@
+;;;;;;;;;;;; prologue
+lis $4
+	.word 4
+slt $11, $0, $4
+;;;;;;;;;;;; end of prologue
+
+;;;;;;;;;;;; assign args
+sw $1, -4($30)
+sw $2, -8($30)
+;;;;;;;;;;;; end of assign args
+
+;;;;;;;;;;;; assign var
+lis $8
+.word 1
+sw $8, -12($30)
+lis $8
+.word 2
+sw $8, -16($30)
+lis $20
+	.word 16
+add $29, $30, $0
+sub $30, $30, $9
+;;;;;;;;;;;; end of assign var
+
+;;;;;;;;;;;; statements
+lw $3, -16($29)
+add $25, $3, $0
+sw $3, -12($29)
+
+lw $3, -12($29)
+add $26, $3,$0
+sw $3, -4($29)
+
+lw $3, -4($29)
+add $27, $3, $0
+sw $3, -12($29)
+
+lw $3, -12($29)
+add $28, $3, $0
+sw $3, -4($29)
+
+;;;;;;;;;;;; end of statements
+
+;;;;;;;;;;;; return
+lw $3, -4($29)
+jr $31

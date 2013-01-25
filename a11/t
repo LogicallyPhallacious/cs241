@@ -1,0 +1,234 @@
+;;;;;;;;;;;; prologue
+lis $4
+	.word 4
+slt $11, $0, $4
+add $28, $31, $0
+lis $27
+.word print
+;;;;;;;;;;;; end of prologue
+
+;;;;;;;;;;;; assign args
+sw $1, -4($30)
+sw $2, -8($30)
+;;;;;;;;;;;; end of assign args
+
+;;;;;;;;;;;; assign var
+sw $0, -12($30)
+lis $3
+	.word 12
+add $29, $30, $0
+sub $30, $30, $3
+;;;;;;;;;;;; end of assign var
+
+;;;;;;;;;;;; statements
+; --------------------- while
+a1while1:
+; --------------------- while condition
+lw $26, -12($29)          ;x
+lw $25, -8($29)          ;b
+ ;                lhs
+lw $24, -4($29)          ;a
+ ;                rhs
+add $25, $25, $24
+ ;                lhs
+lis $24
+	.word 5
+ ;                rhs
+add $25, $25, $24
+slt $26, $26, $25
+beq $26, $0, a1whileEnd1
+; --------------------- while body
+; --------------------- if
+; --------------------- if test
+lw $26, -12($29)          ;x
+lw $25, -8($29)          ;b
+ ;                lhs
+lw $24, -4($29)          ;a
+ ;                rhs
+add $25, $25, $24
+slt $26, $26, $25
+beq $26, $0, a1ifFalse2
+; --------------------- body
+lw $26, -12($29)          ;x
+ ;                lhs
+lw $25, -8($29)          ;b
+ ;                rhs
+add $1, $26, $25
+jalr $27        ; println
+; --------------------- if
+; --------------------- if test
+lw $26, -12($29)          ;x
+lw $25, -4($29)          ;a
+slt $26, $25, $26
+beq $26, $0, a1ifFalse3
+; --------------------- body
+lw $26, -12($29)          ;x
+ ;                lhs
+lw $25, -4($29)          ;a
+ ;                rhs
+sub $1, $26, $25
+jalr $27        ; println
+beq $0, $0, a1endIf3
+; --------------------- else body
+a1ifFalse3:
+lw $26, -12($29)          ;x
+ ;                lhs
+lw $25, -8($29)          ;b
+ ;                rhs
+sub $1, $26, $25
+jalr $27        ; println
+a1endIf3:
+beq $0, $0, a1endIf2
+; --------------------- else body
+a1ifFalse2:
+lw $1, -12($29)          ;x
+lw $1, -8($29)          ;b
+mult $1, $1
+mflo $1
+jalr $27        ; println
+; --------------------- if
+; --------------------- if test
+lw $26, -12($29)          ;x
+lw $25, -8($29)          ;b
+ ;                lhs
+lw $24, -4($29)          ;a
+ ;                rhs
+add $25, $25, $24
+slt $26, $25, $26
+beq $26, $0, a1ifFalse4
+; --------------------- body
+lw $26, -12($29)          ;x
+ ;                lhs
+lw $25, -4($29)          ;a
+ ;                rhs
+sub $26, $26, $25
+ ;                lhs
+lis $25
+	.word 5
+ ;                rhs
+add $1, $26, $25
+jalr $27        ; println
+beq $0, $0, a1endIf4
+; --------------------- else body
+a1ifFalse4:
+lw $26, -12($29)          ;x
+ ;                lhs
+lw $25, -8($29)          ;b
+ ;                rhs
+sub $26, $26, $25
+ ;                lhs
+lis $25
+	.word 3
+ ;                rhs
+add $1, $26, $25
+jalr $27        ; println
+a1endIf4:
+a1endIf2:
+; --------------------- if
+; --------------------- if test
+lw $26, -12($29)          ;x
+lw $25, -4($29)          ;a
+sub $26, $26, $25
+sltu $26, $0, $26
+sub $26, $11, $26
+beq $26, $0, a1ifFalse5
+; --------------------- body
+lw $26, -4($29)          ;a
+lw $25, -8($29)          ;b
+mult $26, $25
+mflo $26
+ ;                lhs
+lw $25, -12($29)          ;x
+ ;                rhs
+sub $1, $26, $25
+jalr $27        ; println
+beq $0, $0, a1endIf5
+; --------------------- else body
+a1ifFalse5:
+lw $1, -12($29)          ;x
+jalr $27        ; println
+a1endIf5:
+; --------------------- finding lvalue
+lis $25
+	.word 12
+sub $26, $29, $25          ;x
+; --------------------- finding RHS
+lw $25, -12($29)          ;x
+ ;                lhs
+add $24, $11, $0
+ ;                rhs
+add $25, $25, $24
+; --------------------- assignment
+sw $25, 0($26)
+
+beq $0, $0, a1while1
+a1whileEnd1:
+;;;;;;;;;;;; end of statements
+
+;;;;;;;;;;;; return
+lw $3, -12($29)          ;x
+jr $28
+
+;;;;;;;;;;;; Library functions
+; PRINTLN
+	print:
+	sw $1, -4($30)
+	sw $2, -8($30)
+	sw $3, -12($30)
+	sw $4, -16($30)
+	sw $5, -20($30)
+	sw $6, -24($30)
+	sw $7, -28($30)
+	sw $8, -32($30)
+	sw $9, -36($30)
+	sw $10, -40($30)
+	lis $3
+	.word -40
+	add $30, $30, $3
+	lis $3
+	.word 0xffff000c
+	lis $4
+	.word 10
+	lis $5
+	.word 4
+	add $6, $1, $0
+	slt $7, $1, $0
+	beq $7, $0, IfDone
+	lis $8
+	.word 0x0000002d
+	sw $8, 0($3)
+	sub $6, $0, $6
+	IfDone:
+	add $9, $30, $0
+	Loop:
+	divu $6, $4
+	mfhi $10
+	sw $10, -4($9)
+	mflo $6
+	sub $9, $9, $5
+	slt $10, $0, $6
+	bne $10, $0, Loop
+	lis $7
+	.word 48
+	Loop2:
+	lw $8, 0($9)
+	add $8, $8, $7
+	sw $8, 0($3)
+	add $9, $9, $5
+	bne $9, $30, Loop2
+	sw $4, 0($3)
+	lis $3
+	.word 40
+	add $30, $30, $3
+	lw $1, -4($30)
+	lw $2, -8($30)
+	lw $3, -12($30)
+	lw $4, -16($30)
+	lw $5, -20($30)
+	lw $6, -24($30)
+	lw $7, -28($30)
+	lw $8, -32($30)
+	lw $9, -36($30)
+	lw $10, -40($30)
+	jr $31
+

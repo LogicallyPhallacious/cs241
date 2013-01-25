@@ -1,0 +1,14 @@
+int wain(int c, int d){
+
+int *p =NULL;
+
+//println(*p);
+int k =50;
+p = &k;
+
+k = 10;
+
+*p = 100;
+
+
+return k;}

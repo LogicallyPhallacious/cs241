@@ -1,0 +1,63 @@
+lis $2
+	.word 0x80000000
+lis $3
+        .word 0xffff000c
+
+bne $1, $2, START
+
+
+beq $0, $0, ENDLOOP
+
+START:
+lis $4
+	.word 10
+lis $6
+	.word 4
+lis $7
+	.word 0xffff000c
+lis $9 
+	.word 0x30
+
+lis $10
+	.word 0x2d  ; minus sign
+
+lis $12
+	.word -1
+
+add $8, $30, $0
+
+slt $3, $1, $0
+beq $3, $0, LOOP
+
+
+sw $10, 0($7)
+mult $1, $12
+mflo $1
+
+LOOP:
+	div $1, $4
+	mfhi $3
+
+	sw $3, -4($30)
+
+	div $1, $4
+	mflo $1
+	beq $1, $0, ENDLOOP
+        sub $30, $30, $6
+	beq $0, $0, LOOP
+		
+ENDLOOP:
+	lw $3, -4($30)
+	add $3, $3, $9
+	sw $3, 0($7)
+
+
+	beq $30, $8, EXIT
+	add $30, $30, $6
+	beq $0, $0, ENDLOOP
+
+EXIT:
+	lis $3
+		.word 10
+	sw $3, 0($7)
+	jr $31

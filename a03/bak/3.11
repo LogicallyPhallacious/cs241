@@ -1,0 +1,2 @@
+ERROR: Parse error in line: 3
+cs241.asm.ParseError: Expecting .word, but got INT {3}

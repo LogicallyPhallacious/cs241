@@ -1,0 +1,2 @@
+java cs241.WLPPScan  < $1| java cs241.WLPPParse | ./wlppgen | java cs241.binasm > foo.mips
+java mips.twoints foo.mips

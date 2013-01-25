@@ -1,0 +1,16 @@
+lis $3
+mflo $3
+mfhi $5
+lw $3,3($3)
+sw $5, 32767($3)
+lw $7, -32768($5)
+sw $3, 0xffff($3)
+.word 34343
+hi:
+.word 45444
+bye:
+beq $3,$3,hi
+mult $3, $3
+div $3, $3
+add $3, $3 ,$3
+sub $3, $3, $3

@@ -1,0 +1,37 @@
+int wain(int p1, int p2) {
+	//----------------------------------------------------
+	// define more variables than registers	
+	//----------------------------------------------------
+	int counter = 0;
+	int ret = 0;
+	int loopEnd = 100;
+	//----------------------------------------------------
+	int v0 = 0;
+	int v1 = 1;
+
+	//----------------------------------------------------
+	// loop that prints all numbers between
+	// (counter -> loopEnd) where (n mod p1) == 0
+	//----------------------------------------------------
+	// if p2 >= 0:
+	// 		ret incremented by 1 when (n mod p1) != 0
+	// if p2 < 0:
+	//		ret decremented by 1 when (n mod p1) != 0 
+	//----------------------------------------------------
+	while(counter < loopEnd) {
+		counter = counter + v1;
+		
+		if ( (counter % p1) == v0 ) {
+			println(counter);
+		} else {
+			if ( p2 >= v0 ) {
+				ret = ret + v1;
+			} else {
+				ret = ret - 1; 
+			}
+		}
+	}
+
+	println(ret);
+	return ret;
+}

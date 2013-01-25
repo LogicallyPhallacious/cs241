@@ -1,0 +1,7 @@
+int wain(int a, int b){
+   int foo = 16;
+   int bar = 1073741825;
+   println(foo);
+   println(bar);
+   return foo+bar;
+}

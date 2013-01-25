@@ -1,0 +1,8 @@
+int wain(int a, int* b){
+
+//int b;
+int c = 0;
+int d = 0;
+//int e =c;
+return a+b;
+}

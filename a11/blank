@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+
+void println(int k){
+	cout << k<<endl;
+}
+
+
+
+int main(int argc, char **argv){
+//int a[21]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+cout << wain(9,11)<<endl;;
+ return 0;
+}

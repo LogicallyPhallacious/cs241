@@ -1,0 +1,4 @@
+#!/bin/bash
+for file in *.cc; do
+	g++ -o `basename $file .cc` $file
+done

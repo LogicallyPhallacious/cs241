@@ -1,0 +1,27 @@
+.word 0x10000002
+.word endCCC
+.word endEnd
+.word 0x00001814
+.word 0x00000000
+.word 0xafdffffc
+.word 0x0000f814
+.word 0x00000000
+.word 0x8fff0000
+.word 0x8fff0000
+.word 0x8fff0000
+.word 0x03dff022
+.word 0x00600009
+.word 0x0000f814
+.word 0x00000000
+.word 0x8fff0000
+.word 0x8fff0000
+.word 0x8fff0000
+.word 0x03dff020
+.word 0x8fdffffc
+.word 0x03e00008
+.word 0x00000004
+def: .word 0x00000014
+abc: .word 0x03e00008
+.word ghi
+endCCC:
+endEnd:

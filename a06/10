@@ -1,0 +1,27 @@
+int wain(int a,int b){
+   int bb = 0;
+   int c = 0;
+   int i;
+   int if;
+   int iff;
+   int whil;
+   int whilex;
+   int ifwhile;
+   int ifreturn;
+   int if123;
+   bb = b;
+   c = 16;
+   while (a > 0) {
+     println(a);
+     b = bb;
+     while (b > 0) {
+        //+ b
+        b = b - 1;
+        c = c + 1;
+     }
+     //+a
+     a = a - 1;
+     //+a
+   }
+   return c ;
+}

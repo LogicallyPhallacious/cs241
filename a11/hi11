@@ -1,0 +1,7 @@
+int wain(int a, int b){
+	int *c= NULL;
+	c = new int[2];
+	a = a+b+a+(a+b+b);
+	*(c+1) = a;
+	return *(c+1);
+}

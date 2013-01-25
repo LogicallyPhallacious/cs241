@@ -1,0 +1,2 @@
+ERROR: Parse error in line: .word 0xffffffff1
+cs241.asm.ParseError: Constant out of range: ffffffff1

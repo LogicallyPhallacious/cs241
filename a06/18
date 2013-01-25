@@ -1,0 +1,20 @@
+wain(int a, int b) {
+   int counter; 
+   int product;
+   product = 0-1;
+   if (a >= 0) {
+      if (b >= 0) {
+         if (a < 10) {
+            if (b < 10) {
+               product = 1;
+               counter = 0;
+               while (counter < b) {
+                  product = product * a;
+                  counter = counter + 1;
+               }  
+            } else {}
+         } else {}
+      } else {}
+   } else {}
+   return product;
+}

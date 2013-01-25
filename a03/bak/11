@@ -1,0 +1,6 @@
+.word -1231
+.word -343
+.word 0xffffffff
+.word 2147483647
+.word -2147483648
+hi:

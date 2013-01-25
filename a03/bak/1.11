@@ -1,0 +1,2 @@
+ERROR: Parse error in line: add $3, $3,$3
+cs241.asm.ParseError: Expecting .word, but got ID {add}

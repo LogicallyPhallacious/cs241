@@ -1,0 +1,4 @@
+wain(int a, int b){
+   b = b+a+b+c+d+d+e-f-g-h-j-k-l-m/n/o/p/q/r/t/y/o/uy/c%f+ a;
+   return a;
+}

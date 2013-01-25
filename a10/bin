@@ -1,0 +1,3 @@
+java cs241.binasm <$1 > foo.mips
+java mips.twoints foo.mips
+

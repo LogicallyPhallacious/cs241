@@ -1,0 +1,31 @@
+2
+0
+1
+8
+zero
+start
+1mod3odd
+1mod3even
+2mod3odd
+2mod3even
+0mod3odd
+0mod3even
+start
+2
+1mod3odd
+2mod3odd
+14
+start 0 zero
+start 1 1mod3odd
+1mod3odd 0 2mod3even
+1mod3odd 1 0mod3odd
+2mod3even 0 1mod3even
+2mod3even 1 2mod3odd
+2mod3odd 0 1mod3even
+2mod3odd 1 2mod3odd
+1mod3even 0 2mod3even
+1mod3even 1 0mod3odd
+0mod3odd 0 0mod3even
+0mod3odd 1 1mod3odd
+0mod3even 0 0mod3even
+0mod3even 1 1mod3odd

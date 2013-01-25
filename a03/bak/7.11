@@ -1,0 +1,2 @@
+ERROR: Parse error in line: .word 234 32423
+cs241.asm.ParseError: Expecting end of line, but there's more stuff.

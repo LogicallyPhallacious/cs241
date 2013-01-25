@@ -1,0 +1,6 @@
+int wain(int c, int d){
+int v2 =2;
+int v1 = 1;
+int v11 = 0;
+v11 = ((v2+v2)+(2+2)+(v2+v1));
+return v11;}

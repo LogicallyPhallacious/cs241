@@ -1,0 +1,27 @@
+.word 10000002
+.word endCCC
+.word endEnd
+.word 00001814
+.word 00000000
+.word afdffffc
+.word 0000f814
+.word 00000000
+.word 8fff0000
+.word 8fff0000
+.word 8fff0000
+.word 03dff022
+.word 00600009
+.word 0000f814
+.word 00000000
+.word 8fff0000
+.word 8fff0000
+.word 8fff0000
+.word 03dff020
+.word 8fdffffc
+.word 03e00008
+.word 00000004
+.word 00000014
+.word 03e00008
+.word 00000000
+endCCC:
+endEnd:

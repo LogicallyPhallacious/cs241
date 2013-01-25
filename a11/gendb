@@ -1,0 +1,1 @@
+java cs241.WLPPScan  < $1| java cs241.WLPPParse | ./wlppgen 2
